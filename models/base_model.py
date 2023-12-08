@@ -14,8 +14,8 @@ class BaseModel():
 						setattr(self, key, value)
 		else:
 			self.id = str(uuid.uuid4())
-			self.created_at = str(datetime.now)
-			self.updated_at = str(datetime.now)
+			self.created_at = str(datetime.now())
+			self.updated_at = str(datetime.now())
 		
 	
 	def __str__(self):

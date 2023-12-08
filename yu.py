@@ -1,6 +1,6 @@
 import uuid
-from datetime import date
+from datetime import datetime
+created_at = str(datetime.now())
+x = uuid.uuid4()
 
-x = str(uuid.uuid4())
-
-print(x)
+print(created_at)

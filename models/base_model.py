@@ -13,9 +13,10 @@ class BaseModel():
 					else:
 						setattr(self, key, value)
 		else:
+			vi = datetime.now()
 			self.id = str(uuid.uuid4())
-			self.created_at = str(datetime.now())
-			self.updated_at = str(datetime.now())
+			self.created_at = f"datetime.datetime({vi.year}, {vi.month}, {vi.day}, {vi.hour}, {vi.minute}, {vi.second}, {vi.microsecond})"
+			self.updated_at = f"datetime.datetime({vi.year}, {vi.month}, {vi.day}, {vi.hour}, {vi.minute}, {vi.second}, {vi.microsecond})"
 		
 	
 	def __str__(self):

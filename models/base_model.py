@@ -15,9 +15,8 @@ class BaseModel():
 		else:
 			vi = datetime.now()
 			self.id = str(uuid.uuid4())
-			self.created_at = f"datetime.datetime({vi.year}, {vi.month}, {vi.day}, {vi.hour}, {vi.minute}, {vi.second}, {vi.microsecond})"
-			self.updated_at = f"datetime.datetime({vi.year}, {vi.month}, {vi.day}, {vi.hour}, {vi.minute}, {vi.second}, {vi.microsecond})"
-		
+			self.created_at = vi.strftime('datetime.datetime(%Y, %m, %d, %H, %M, %S,)')
+			self.updated_at = vi.strftime('datetime.datetime(%Y, %m, %d, %H, %M, %S,)')
 	
 	def __str__(self):
 		return f"[{self.__class__.__name__}]({self.id}) {self.__dict__}"
@@ -27,8 +26,8 @@ class BaseModel():
 	
 	def to_dict(self):
 		obj_dict = self.__dict__
-		obj_dict['created_at'] = self.created_at.isoformat()
-		obj_dict['updated_at'] = self.updated_at.isoformat()
+		obj_dict['created_at'] = datetime.now().isoformat()
+		obj_dict['updated_at'] = datetime.now().isoformat()
 		obj_dict['__class__'] = self.__class__.__name__
 		return obj_dict
 	
